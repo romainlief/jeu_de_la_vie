@@ -25,7 +25,6 @@ def run_gui(size=50, alive_prob=0.2, interval=200):
 
     ani = animation.FuncAnimation(fig, update, interval=interval, blit=True)
 
-    # Bouton Pause/Resume
     axpause = plt.axes([0.7, 0.03, 0.08, 0.05])
     bpause = Button(axpause, "Pause")
 
@@ -35,7 +34,6 @@ def run_gui(size=50, alive_prob=0.2, interval=200):
 
     bpause.on_clicked(on_pause)
 
-    # Bouton Step (avance d'une génération si en pause)
     axstep = plt.axes([0.59, 0.03, 0.08, 0.05])
     bstep = Button(axstep, "Step")
 
@@ -47,7 +45,6 @@ def run_gui(size=50, alive_prob=0.2, interval=200):
 
     bstep.on_clicked(on_step)
 
-    # Bouton Randomize (réinitialise la grille)
     axrand = plt.axes([0.44, 0.03, 0.125, 0.05])
     brand = Button(axrand, "Randomize")
 
