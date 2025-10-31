@@ -12,7 +12,7 @@ class GameOfLifeSimulation:
         new_grid = np.zeros((self.N, self.N), dtype=int)
         for i in range(self.N):
             for j in range(self.N):
-                neighbors = self._neighbor_active_count(i, j)
+                neighbors = self.neighbor_active_count(i, j)
                 if self._grid[i, j] == 1:
                     new_grid[i, j] = 1 if (neighbors == 2 or neighbors == 3) else 0
                 else:
@@ -30,6 +30,17 @@ class GameOfLifeSimulation:
                 yj = (y + j) % self.N
                 if self._grid[xi, yj] == 1:
                     count += 1
+        return count
+    
+    def neighbor_active_count(self, x, y):
+        count = 0
+        for i in (-1, 0, 1):
+            for j in (-1, 0, 1):
+                if i == 0 and j == 0:
+                    continue
+                xi, yj = x + i, y + j
+                if 0 <= xi < self.N and 0 <= yj < self.N:
+                    count += self._grid[xi, yj]
         return count
 
     @property

@@ -1,4 +1,3 @@
-import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib.widgets import Button
@@ -6,7 +5,7 @@ from matplotlib.widgets import Button
 from simulation import GameOfLifeSimulation
 
 
-def run_gui(size=50, alive_prob=0.1, interval=200):
+def run_gui(size=50, alive_prob=0.2, interval=200):
     sim = GameOfLifeSimulation(size=size, alive_prob=alive_prob)
 
     fig, ax = plt.subplots()
